@@ -599,7 +599,7 @@ static void reportAttributes(ASTContext &Ctx,
         PlatformUID = UIdent(); break;
       case PlatformKind::iOS:
         PlatformUID = PlatformIOS; break;
-      case PlatformKind::OSX:
+      case PlatformKind::macOS:
         PlatformUID = PlatformOSX; break;
       case PlatformKind::tvOS:
         PlatformUID = PlatformtvOS; break;

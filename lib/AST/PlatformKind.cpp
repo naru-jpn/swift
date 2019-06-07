@@ -51,7 +51,7 @@ Optional<PlatformKind> swift::platformFromString(StringRef Name) {
   return llvm::StringSwitch<Optional<PlatformKind>>(Name)
 #define AVAILABILITY_PLATFORM(X, PrettyName) .Case(#X, PlatformKind::X)
 #include "swift/AST/PlatformKinds.def"
-      .Case("macOS", PlatformKind::OSX)
+      .Case("macOS", PlatformKind::macOS)
       .Case("macOSApplicationExtension", PlatformKind::OSXApplicationExtension)
       .Default(Optional<PlatformKind>());
 }
@@ -69,7 +69,7 @@ static bool isPlatformActiveForTarget(PlatformKind Platform,
   
   // FIXME: This is an awful way to get the current OS.
   switch (Platform) {
-    case PlatformKind::OSX:
+    case PlatformKind::macOS:
     case PlatformKind::OSXApplicationExtension:
       return Target.isMacOSX();
     case PlatformKind::iOS:
@@ -97,7 +97,7 @@ PlatformKind swift::targetPlatform(LangOptions &LangOpts) {
   if (LangOpts.Target.isMacOSX()) {
     return (LangOpts.EnableAppExtensionRestrictions
                 ? PlatformKind::OSXApplicationExtension
-                : PlatformKind::OSX);
+                : PlatformKind::macOS);
   }
 
   if (LangOpts.Target.isTvOS()) {

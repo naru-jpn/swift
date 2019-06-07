@@ -1176,7 +1176,7 @@ SDKNodeInitInfo::SDKNodeInitInfo(SDKContext &Ctx, Decl *D):
       Location(calculateLocation(Ctx, D)),
       ModuleName(D->getModuleContext()->getName().str()),
       GenericSig(printGenericSignature(Ctx, D)),
-      IntromacOS(Ctx.getPlatformIntroVersion(D, PlatformKind::OSX)),
+      IntromacOS(Ctx.getPlatformIntroVersion(D, PlatformKind::macOS)),
       IntroiOS(Ctx.getPlatformIntroVersion(D, PlatformKind::iOS)),
       IntrotvOS(Ctx.getPlatformIntroVersion(D, PlatformKind::tvOS)),
       IntrowatchOS(Ctx.getPlatformIntroVersion(D, PlatformKind::watchOS)),

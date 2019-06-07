@@ -857,7 +857,7 @@ private:
 
       const char *plat;
       switch (AvAttr->Platform) {
-      case PlatformKind::OSX:
+      case PlatformKind::macOS:
         plat = "macos";
         break;
       case PlatformKind::iOS:

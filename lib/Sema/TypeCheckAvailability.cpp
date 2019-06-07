@@ -1217,7 +1217,7 @@ static bool fixAvailabilityByNarrowingNearbyVersionCheck(
     auto Platform = targetPlatform(TC.Context.LangOpts);
     if (RunningVers.getMajor() != RequiredVers.getMajor())
       return false;
-    if ((Platform == PlatformKind::OSX ||
+    if ((Platform == PlatformKind::macOS ||
          Platform == PlatformKind::OSXApplicationExtension) &&
         !(RunningVers.getMinor().hasValue() &&
           RequiredVers.getMinor().hasValue() &&
